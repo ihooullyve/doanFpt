@@ -1,49 +1,55 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 <div id="form" style="width: 35%; margin: 50px auto">
 
-	<h2>Thêm Hoi Dong</h2>
+	<h2>Thêm hội đồng</h2>
 	<form method="POST" action="{% url 'add_hd' %}" >
 		{% csrf_token %}
 		<div class="form-group">
-			<label for="name">Ma hoi dong</label>
+			<label for="name">Mã hội đồng</label>
 			<input type="text" name="mahd" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Ma hoi dong">
+			<span id="mahdHelp" class="form-text text-danger"></span>
 		</div>
 
 		<div class="form-group">
-			<label for="detai">Chu tich</label>
+			<label for="detai">Chủ tịch</label>
 			<select class="form-control" name="chutich">
 				{% for pk in thongtin %}
 				<option value="{{pk.ma_so}}" >{{pk.ho_ten}}</option>
 				{% endfor %}
 			</select>
+			<span id="chutichHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="detai">Thu ky</label>
+			<label for="detai">Thư ký</label>
 			<select class="form-control" name="thuky">
 				{% for pk in thongtin %}
 				<option value="{{pk.ma_so}}" >{{pk.ho_ten}}</option>
 				{% endfor %}
 			</select>
+			<span id="thukyHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="detai">Giang vien</label>
+			<label for="detai">Giảng viên</label>
 			<select class="form-control" name="giangvien">
 				{% for pk in thongtin %}
 				<option value="{{pk.ma_so}}" >{{pk.ho_ten}}</option>
 				{% endfor %}
 			</select>
+			<span id="giangvienHelp" class="form-text text-danger"></span>
 		</div>
 
 		<div class="form-group">
-			<label for="name">Dia chi</label>
-			<input type="text" name="diachi" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Ma hoi dong">
+			<label for="name">Địa chỉ</label>
+			<input type="text" name="diachi" class="form-control" placeholder="dia chi">
+			<span id="diachiHelp" class="form-text text-danger"></span>
 		</div>
 
 		<fieldset class="date"> 
-			<legend>Ngay bao ve </legend> 
-			<label for="day_end">Ngay</label> 
+			<legend>Ngày bảo vệ </legend> 
+			<label for="day_end">Ngày</label> 
 			<select id="day_end" name="day" /> 
 				<option>1</option>       
 				<option>2</option>       
@@ -77,7 +83,7 @@
 				<option>30</option>       
 				<option>31</option>       
 			</select> - 
-			<label for="month_end">Thang</label> 
+			<label for="month_end">Tháng</label> 
 			<select id="month_end" name="month" /> 
 				<option>1</option>       
 				<option>2</option>       
@@ -92,7 +98,7 @@
 				<option>11</option>       
 				<option>12</option>       
 			</select> - 
-			<label for="year_end">Nam</label> 
+			<label for="year_end">Năm</label> 
 			<select id="year_end"  name="year" /> 
 				<option>2009</option>       
 				<option>2010</option>       
@@ -106,9 +112,11 @@
 				<option>2018</option>       
 			</select> 
 		</fieldset> 
-		<button type="button" class="btn btn-danger">Cancel</button>
-		<button type="submit" class="btn btn-primary">Submit</button>
+		<span id="dateHelp" class="form-text text-danger"></span>
+		<button type="button" class="btn btn-danger">Hủy</button>
+		<button type="submit" class="btn btn-primary">Thêm</button>
 	</form>
 
 </div>
+<script type="text/javascript" src="{% static 'styles/js/hoiodng/them_hoidong.js' %}"></script>
 {% endblock %}
