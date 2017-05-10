@@ -150,7 +150,7 @@ def add_gv(request):
 
 
 def giangvien_sua(request):
-    thongtin = ThongTin.objects.get(user__id=24)
+    thongtin = ThongTin.objects.get(user__id=6)
     return render(request, 'giangvien/edit.html', {'data': thongtin})
 
 
@@ -163,11 +163,11 @@ def edit_gv(request):
     hocvi = request.POST.get('hocvi')
     chuyennganh = request.POST.get('chuyennganh')
 
-    user = User.objects.get(id=24)
+    user = User.objects.get(id=6)
     user.username = name
     user.save()
 
-    thongtin = ThongTin.objects.get(user__id=24)
+    thongtin = ThongTin.objects.get(user__id=6)
     thongtin.ho_ten = name
     thongtin.ma_so = msgv
     thongtin.dia_chi = diachi

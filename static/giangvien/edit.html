@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 <div id="form" style="width: 35%; margin: 50px auto;">
@@ -8,34 +9,43 @@
 		<div class="form-group">
 			<label for="name">Tên GV</label>
 			<input type="text" name="name" value="{{data.ho_ten}}" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Tên GV">
+			<span id="nameHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="mssv">MSGV</label>
-			<input type="text" name="msgv" value="{{data.ma_so}}" class="form-control" id="mssv" placeholder="MSGV">
+			<label>MSGV</label>
+			<input type="text" name="msgv" value="{{data.ma_so}}" class="form-control" placeholder="MSGV">
+			<span id="msgvHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="mssv">Dia Chi</label>
-			<input type="text" name="diachi" value="{{data.dia_chi}}" class="form-control" id="mssv" placeholder="Dia Chi">
+			<label>Dia Chi</label>
+			<input type="text" name="diachi" value="{{data.dia_chi}}" class="form-control" placeholder="Dia Chi">
+			<span id="diachiHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="mssv">Email</label>
-			<input type="email" name="email" value="{{data.email}}" class="form-control" id="mssv" placeholder="Email">
+			<label>Email</label>
+			<input type="text" name="email" value="{{data.email}}" class="form-control" placeholder="Email">
+			<span id="emailHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="mssv">So Dien Thoai</label>
-			<input type="text" name="sdt" class="form-control" value="{{data.sdt}}" id="mssv" placeholder="SDT">
+			<label>So Dien Thoai</label>
+			<input type="text" name="sdt" class="form-control" value="{{data.sdt}}" placeholder="SDT">
+			<span id="sdtHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
-			<label for="mssv">Hoc Vi</label>
-			<input type="text" name="hocvi" class="form-control" value="{{data.hoc_vi}}" id="mssv" placeholder="Hoc Vi">
+			<label>Hoc Vi</label>
+			<input type="text" name="hocvi" class="form-control" value="{{data.hoc_vi}}" placeholder="Hoc Vi">
+			<span id="hocviHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="mssv">Chuyen Nganh</label>
 			<input type="text" name="chuyennganh" value="{{data.chuyen_nganh}}" class="form-control" id="mssv" placeholder="Chuyen Nganh">
+			<span id="chuyennganhHelp" class="form-text text-danger"></span>
 		</div>
 
 		<a href="{% url 'index' %}" type="button" class="btn btn-danger">Cancel</a>
 		<button type="submit" class="btn btn-primary">Submit</button>
 	</form>
 </div>
+
+<script type="text/javascript" src="{% static 'styles/js/giangvien/them_gv.js' %}"></script>
 {% endblock %}
