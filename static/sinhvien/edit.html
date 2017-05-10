@@ -1,22 +1,25 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block content %}
 <div id="form" style="margin-left: auto; margin-right: auto; max-width: 700px;">
-	<h2> Sua Sinh Viên</h2>
+	<h2> Sửa Sinh Viên</h2>
 	<form method="POST" action="{% url 'edit_sv' %}" >
 		{% csrf_token %}
 		<div class="form-group">
 			<label for="name">Tên SV</label>
 			<input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Tên SV" value="{{data.ho_ten}}">
-			<!-- <small id="nameHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+			<span id="nameHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="mssv">MSSV</label>
 			<input type="text" name="mssv" class="form-control" id="mssv" placeholder="MSSV" value="{{data.ma_so}}">
+			<span id="mssvHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="mssv">Lớp</label>
 			<input type="text" name="lop" class="form-control" id="mssv" placeholder="Lớp" value="{{data.lop}}">
+			<span id="lopHelp" class="form-text text-danger"></span>
 		</div>
 		<div class="form-group">
 			<label for="detai">Tên đề tài</label>
@@ -31,4 +34,5 @@
 	</form>
 
 </div>
+<script type="text/javascript" src="{% static 'styles/js/sinhvien/them_sinhvien.js' %}"></script>
 {% endblock %}
