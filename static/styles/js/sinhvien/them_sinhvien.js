@@ -2,7 +2,6 @@
     // console.log($("#nameHelp").removeClass('invisible').text("YoYo"));
     $('button[type=submit').click(function (e) {
         console.log("Clicked");
-        e.preventDefault();
 
         var name = {
                 value: $('input[name=name]').val(),
@@ -72,5 +71,9 @@
         name.helpElement.text(name.message);
         mssv.helpElement.text(mssv.message);
         lop.helpElement.text(lop.message);
+
+        if (error) {
+            e.preventDefault();
+        }
     });
 })();
