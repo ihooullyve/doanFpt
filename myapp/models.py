@@ -28,7 +28,7 @@ class ThongTin(models.Model):
 	hoc_vi = models.CharField(max_length=255, null=True)
 	chuyen_nganh = models.CharField(max_length=255, null=True)
 	ma_detai = models.ForeignKey(DeTai, null=True)
-	ngaysinh = models.DateTimeField(default=datetime.now(), blank=True)
+	ngaysinh = models.DateField(blank=True, null=True)
 	choice = models.CharField(choices=LIST_CHOICES, max_length=45)
 
 
@@ -39,10 +39,10 @@ class ThongTin(models.Model):
 class HoiDong(models.Model):
     mahd = models.CharField(max_length=255)
     chutich = models.ForeignKey(
-        User, related_name='gv_chutich', null=True)
-    thuky = models.ForeignKey(User, related_name='gv_thuky', null=True)
-    msgv = models.ForeignKey(User, related_name='gv_msgv', null=True)
-    ngaybv = models.DateTimeField(default=datetime.now(), blank=True)
+        ThongTin, related_name='gv_chutich', null=True)
+    thuky = models.ForeignKey(ThongTin, related_name='gv_thuky', null=True)
+    msgv = models.ForeignKey(ThongTin, related_name='gv_msgv', null=True)
+    ngaybv = models.DateField(blank=True, null=True)
     diachibv = models.CharField(max_length=255)
 
     def __str__(self):

@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Edit!</h2>
+<div id="form" style="width: 35%; margin: 50px auto">
+	<h2>Sua De Tai</h2>
+	<form method="POST" action="{% url 'edit_dt' %}" >
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="name">Tên De Tai</label>
+			<input type="text" name="name" value="{{data.tendt}}" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Tên de tai">
+		</div>
+		<div class="form-group">
+			<label for="mssv">Ma de tai</label>
+			<input type="text" name="madt" value="{{data.msdt}}" class="form-control" id="mssv" placeholder="Ma de tai">
+		</div>
+
+		<a href="{% url 'index' %}" type="button" class="btn btn-danger">Cancel</a>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+</div>
 {% endblock %}

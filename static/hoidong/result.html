@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="form" style="width: 70%; margin: 50px auto;">
+	<table class="table table-bordered">
+		<thead>
+			<th>Ma hoi dong</th>
+			<th>Chu tich</th>
+			<th>Thu ky</th>
+			<th>Ten GV</th>
+			<th>Ngay BV</th>
+			<th>Dia chi BV</th>
+		</thead>
+		<tbody>
+			{% for pk in data %}
+			<tr>
+				<td>{{pk.mahd}}</td>
+				<td>{{pk.chutich.ho_ten}}</td>
+				<td>{{pk.thuky.ho_ten}}</td>
+				<td>{{pk.msgv.ho_ten}}</td>
+				<td>{{pk.ngaybv}}</td>
+				<td>{{pk.diachibv}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

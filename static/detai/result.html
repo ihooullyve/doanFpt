@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div id="form" style="width: 35%; margin: 50px auto;">
+	<table class="table table-bordered">
+		<thead>
+			<th>Ma de tai</th>
+			<th>Ten de tai</th>
+		</thead>
+		<tbody>
+			{% for pk in data %}
+			<tr>
+				<td>{{pk.msdt}}</td>
+				<td>{{pk.tendt}}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

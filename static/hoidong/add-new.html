@@ -1,5 +1,114 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Add new!</h2>
+<div id="form" style="width: 35%; margin: 50px auto">
+
+	<h2>Thêm Hoi Dong</h2>
+	<form method="POST" action="{% url 'add_hd' %}" >
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="name">Ma hoi dong</label>
+			<input type="text" name="mahd" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Ma hoi dong">
+		</div>
+
+		<div class="form-group">
+			<label for="detai">Chu tich</label>
+			<select class="form-control" name="chutich">
+				{% for pk in thongtin %}
+				<option value="{{pk.ma_so}}" >{{pk.ho_ten}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="detai">Thu ky</label>
+			<select class="form-control" name="thuky">
+				{% for pk in thongtin %}
+				<option value="{{pk.ma_so}}" >{{pk.ho_ten}}</option>
+				{% endfor %}
+			</select>
+		</div>
+		<div class="form-group">
+			<label for="detai">Giang vien</label>
+			<select class="form-control" name="giangvien">
+				{% for pk in thongtin %}
+				<option value="{{pk.ma_so}}" >{{pk.ho_ten}}</option>
+				{% endfor %}
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="name">Dia chi</label>
+			<input type="text" name="diachi" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Ma hoi dong">
+		</div>
+
+		<fieldset class="date"> 
+			<legend>Ngay bao ve </legend> 
+			<label for="day_end">Ngay</label> 
+			<select id="day_end" name="day" /> 
+				<option>1</option>       
+				<option>2</option>       
+				<option>3</option>       
+				<option>4</option>       
+				<option>5</option>       
+				<option>6</option>       
+				<option>7</option>       
+				<option>8</option>       
+				<option>9</option>       
+				<option>10</option>       
+				<option>11</option>       
+				<option>12</option>       
+				<option>13</option>       
+				<option>14</option>       
+				<option>15</option>       
+				<option>16</option>       
+				<option>17</option>       
+				<option>18</option>       
+				<option>19</option>       
+				<option>20</option>       
+				<option>21</option>       
+				<option>22</option>       
+				<option>23</option>       
+				<option>24</option>       
+				<option>25</option>       
+				<option>26</option>       
+				<option>27</option>       
+				<option>28</option>       
+				<option>29</option>       
+				<option>30</option>       
+				<option>31</option>       
+			</select> - 
+			<label for="month_end">Thang</label> 
+			<select id="month_end" name="month" /> 
+				<option>1</option>       
+				<option>2</option>       
+				<option>3</option>       
+				<option>4</option>       
+				<option>5</option>       
+				<option>6</option>       
+				<option>7</option>       
+				<option>8</option>       
+				<option>9</option>       
+				<option>10</option>       
+				<option>11</option>       
+				<option>12</option>       
+			</select> - 
+			<label for="year_end">Nam</label> 
+			<select id="year_end"  name="year" /> 
+				<option>2009</option>       
+				<option>2010</option>       
+				<option>2011</option>       
+				<option>2012</option>       
+				<option>2013</option>       
+				<option>2014</option>       
+				<option>2015</option>       
+				<option>2016</option>       
+				<option>2017</option>       
+				<option>2018</option>       
+			</select> 
+		</fieldset> 
+		<button type="button" class="btn btn-danger">Cancel</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+
+</div>
 {% endblock %}
