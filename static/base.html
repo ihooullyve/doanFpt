@@ -1,37 +1,125 @@
-<!DOCTYPE html>
+{% load staticfiles %}
 <html>
 <head>
-	<title>Home</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+	<meta charset="utf-8">
+	<title>SE32 - Hệ thống quản lý đề tài tốt nghiệp khoa CNTT</title>
+	<link rel="stylesheet" href="{% static 'styles/css/style.css' %}">
+	<link rel="stylesheet" href="{% static 'styles/css/nav.css' %}">
 </head>
+
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="#">WebSiteName</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="#">Page 1</a></li>
-				<li><a href="#">Page 2</a></li>
-				<li><a href="#">Page 3</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-				{% if user.is_authenticated %}
-					<p class="top-menu">Hello {{ user.username }} <small>(<a href="{% url 'logout' %}">Log out</a>)</small></p>
-				{% else %}
-				<li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-				<li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				{% endif %}
-			</ul>
-		</div>
-	</nav>
+	<section id="container">
+		<header id="header">
+			<span id="header-title">Khoa CNTT - BKDN</span>
+			<span id="header-menu">
+				Hệ thống quản lý đề tài tốt nghiệp khoa CNTT
+			</span>       
+		</header>
+		<main id="main">
+			<aside id="menu">
+				<div id="menu-header">
+					<div id="user-pic">
+						<img title="Ace Ventura" class="img-responsive thumb50 circle angel" data-size="55" data-format="circle" src="https://techsappstaging.blob.core.windows.net/ace/avatar_ace_medium.png">
+					</div>
+					<div id="user-details">
+						<span id="user-greetings">Welcome, </span>
+						<span id="user-name">Quốc Hoàng</span>
+					</div>
+				</div>
+				<nav id="menu-options">
+					<ul>
+						<li>
+							<label>Menu Item 01</label>
+							<span class="icon"></span>
+						</li>
+						<li>
+							<label>Menu Item 02</label>
+							<span class="icon"></span>
+						</li>
+						<li>
+							<label>Menu Item 03</label>
+							<span class="icon"></span>
+						</li>
+						<li>
+							<label>Menu Item 04</label>
+							<span class="icon"></span>
+						</li>
+						<li>
+							<label>Menu Item 05</label>
+							<span class="icon"></span>
+						</li>
+						<li>
+							<label>Menu Item 06</label>
+							<span class="icon"></span>
+						</li>
+					</ul>
+				</nav>
+				<footer id="menu-footer">
+					<a href="" title="Settings">
+						<i class="fa fa-cog" aria-hidden="true"></i>
+					</a>
+					<a href="" title="FullScreen">
+						<i class="fa fa-arrows-alt" aria-hidden="true"></i>
+					</a>
+					<a href="" title="Lock">
+						<i class="fa fa-lock" aria-hidden="true"></i>
+					</a>
+					<a href="login.html" title="Logout">
+						<i class="fa fa-sign-out" aria-hidden="true"></i>
+					</a>
+				</footer>
+			</aside>
+			<article id="page">
+				<div id="page-header">
+					<span id="page-title">
+						<ul class="nav">
+							<li><a href="{% url 'index' %}">Home</a></li>
+							<li class="dropdown">
+								<a href="#">Sinh Viên</a>
+								<ul>
+									<li><a href="{% url 'sinhvien_them' %}">Thêm SV</a></li>
+									<li><a href="{% url 'sinhvien_sua' %}">Chỉnh sửa SV</a></li>
+									<li><a href="{% url 'sinhvien_timkiem' %}">Tìm kiếm SV</a></li>
+								</ul>
+							</li>
+							<li class="dropdown">
+								<a href="#">Đề Tài</a>
+								<ul>
+									<li><a href="{% url 'detai_them' %}">Thêm Đề Tài</a></li>
+									<li><a href="{% url 'detai_sua' %}">Chỉnh sửa Đề Tài</a></li>
+									<li><a href="{% url 'detai_timkiem' %}">Tìm Kiếm Đề Tài</a></li>
+								</ul>
+							</li>
 
-	{% block content %}
+							<li class="dropdown">
+								<a href="#">Giảng Viên</a>
+								<ul>
+									<li><a href="{% url 'giangvien_them' %}">Thêm GV</a></li>
+									<li><a href="{% url 'giangvien_sua' %}">Chỉnh Sửa GV</a></li>
+									<li><a href="{% url 'giangvien_timkiem' %}">Tìm kiếm GV</a></li>
+								</ul>
+							</li>
 
-	{% endblock %}
+							<li class="dropdown">
+								<a href="#">Hội Đồng</a>
+								<ul>
+									<li><a href="{% url 'hoidong_them' %}">Thêm hội đông</a></li>
+									<li><a href="{% url 'hoidong_sua' %}">Chỉnh sửa hội đồng</a></li>
+									<li><a href="{% url 'hoidong_timkiem' %}">Tìm kiếm hội đồng</a></li>
+								</ul>
+							</li>
+						</ul>
+					</span>         
+					<!-- <span id="page-subtitle">Thêm đề tài</span> -->
+				</div>
 
+				{% block content %}
+
+				{% endblock %}
+
+			</article>
+		</main>
+	</section>
 </body>
 </html>
