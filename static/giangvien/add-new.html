@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Add new!</h2>
+<div id="form" style="width: 35%; margin: 50px auto;">
+	<h2>Thêm Giang Viên</h2>
+	<form method="POST" action="{% url 'add_gv' %}" >
+		{% csrf_token %}
+		<div class="form-group">
+			<label for="name">Tên GV</label>
+			<input type="text" name="name" class="form-control" id="name" aria-describedby="nameHelp" placeholder="Tên GV">
+		</div>
+		<div class="form-group">
+			<label for="mssv">MSGV</label>
+			<input type="text" name="msgv" class="form-control" id="mssv" placeholder="MSGV">
+		</div>
+		<div class="form-group">
+			<label for="mssv">Dia Chi</label>
+			<input type="text" name="diachi" class="form-control" id="mssv" placeholder="Dia Chi">
+		</div>
+		<div class="form-group">
+			<label for="mssv">Email</label>
+			<input type="email" name="email" class="form-control" id="mssv" placeholder="Email">
+		</div>
+		<div class="form-group">
+			<label for="mssv">So Dien Thoai</label>
+			<input type="text" name="sdt" class="form-control" id="mssv" placeholder="SDT">
+		</div>
+		<div class="form-group">
+			<label for="mssv">Hoc Vi</label>
+			<input type="text" name="hocvi" class="form-control" id="mssv" placeholder="Hoc Vi">
+		</div>
+		<div class="form-group">
+			<label for="mssv">Chuyen Nganh</label>
+			<input type="text" name="chuyennganh" class="form-control" id="mssv" placeholder="Chuyen Nganh">
+		</div>
+
+		<button type="button" class="btn btn-danger">Cancel</button>
+		<button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
 {% endblock %}
